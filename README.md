@@ -3,20 +3,26 @@
 
 > 仅需将 HTTP 请求转换为对应结构体后调用相关函数并填充返回值即可，关于参数的校验等行为交由 SDK 内部处理。
 
+# 安装
+```shell
+dotnet add package luksdk
+```
+
 # 示例代码
 ```csharp
 using System;
 using System.Text.Json;
+using project_luksdk_dotnet;
 
-namespace project_luksdk_dotnet
+namespace ConsoleApplication1
 {
-    public class Example
+    internal class Program
     {
-        private static void example()
+        public static void Main(string[] args)
         {
             // 初始化 SDK
             SDK sdk = new SDK("123456");
-            
+
             // 来自 SDK 请求的参数结构
             GetChannelTokenRequest request = new GetChannelTokenRequest();
             request.CId = 1000;
@@ -33,7 +39,7 @@ namespace project_luksdk_dotnet
 
                 return (response, null);
             });
-            
+
             // 将 resp 作为 JSON 写入 HTTP 响应
             Console.WriteLine(JsonSerializer.Serialize(resp));
         }
