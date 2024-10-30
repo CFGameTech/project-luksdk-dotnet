@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>luksdk</id>
-    <version>0.0.4</version>
+    <version>0.0.6</version>
     <authors>LUKSDK</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">MIT</license>

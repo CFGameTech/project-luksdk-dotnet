@@ -65,6 +65,12 @@ namespace project_luksdk_dotnet
                 {
                     var jsonTag = prop.GetCustomAttribute<JsonPropertyNameAttribute>()?.Name;
                     if (jsonTag == null || jsonTag == "sign") continue;
+                    
+                    // 只处理基本类型
+                    if (!prop.PropertyType.IsPrimitive || prop.PropertyType == typeof(DateTime))
+                    {
+                        continue;
+                    }
 
                     var value = prop.GetValue(obj)?.ToString();
                     if (!string.IsNullOrEmpty(value))

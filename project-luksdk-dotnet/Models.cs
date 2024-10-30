@@ -28,10 +28,10 @@ namespace project_luksdk_dotnet
     public class GetChannelTokenRequest
     {
         [JsonPropertyName("c_id")]
-        public int CId { get; set; }
+        public int ChannelId { get; set; }
     
         [JsonPropertyName("c_uid")]
-        public string CUid { get; set; }
+        public string UserId { get; set; }
     
         [JsonPropertyName("code")]
         public string Code { get; set; }
@@ -56,10 +56,10 @@ namespace project_luksdk_dotnet
     public class RefreshChannelTokenRequest
     {
         [JsonPropertyName("c_id")]
-        public int CId { get; set; }
+        public int ChannelId { get; set; }
         
         [JsonPropertyName("c_uid")]
-        public int CUid { get; set; }
+        public int UserId { get; set; }
         
         [JsonPropertyName("token")]
         public string Token { get; set; }
@@ -85,14 +85,20 @@ namespace project_luksdk_dotnet
 
     public class GetChannelUserInfoRequest
     {
+        [JsonPropertyName("g_id")]
+        public int GameId { get; set; }
+        
         [JsonPropertyName("c_id")]
-        public int CId { get; set; }
+        public int ChannelId { get; set; }
         
         [JsonPropertyName("c_uid")]
-        public string CUid { get; set; }
+        public string UserId { get; set; }
         
         [JsonPropertyName("token")]
         public string Token { get; set; }
+        
+        [JsonPropertyName("timestamp")]
+        public long Timestamp { get; set; }
         
         [JsonPropertyName("sign")]
         public string Sign { get; set; }
@@ -101,7 +107,7 @@ namespace project_luksdk_dotnet
     public class GetChannelUserInfoResponse 
     {
         [JsonPropertyName("c_uid")]
-        public string CUid { get; set; }
+        public string UserId { get; set; }
         
         [JsonPropertyName("name")]
         public string Name { get; set; }
@@ -118,6 +124,12 @@ namespace project_luksdk_dotnet
         [JsonPropertyName("sign")]
         public string Sign { get; set; }
         
+        [JsonPropertyName("timestamp")]
+        public long Timestamp { get; set; }
+        
+        [JsonPropertyName("nonce")]
+        public string Nonce { get; set; }
+        
         [JsonPropertyName("data")]
         public List<CreateChannelOrderRequestEntry> Data { get; set; }
     }
@@ -125,16 +137,16 @@ namespace project_luksdk_dotnet
     public class CreateChannelOrderRequestEntry 
     {
         [JsonPropertyName("c_id")]
-        public int CId { get; set; }
+        public int ChannelId { get; set; }
         
         [JsonPropertyName("c_uid")]
-        public string CUid { get; set; }
+        public string UserId { get; set; }
         
         [JsonPropertyName("c_room_id")]
-        public string CRoomId { get; set; }
+        public string RoomId { get; set; }
         
         [JsonPropertyName("g_id")]
-        public int GId { get; set; }
+        public int GameId { get; set; }
         
         [JsonPropertyName("coins_cost")]
         public long CoinsCost { get; set; }
@@ -160,7 +172,7 @@ namespace project_luksdk_dotnet
     public class CreateChannelOrderResponseEntry
     {
         [JsonPropertyName("c_uid")]
-        public string CUid { get; set; }
+        public string UserId { get; set; }
         
         [JsonPropertyName("order_id")]
         public string OrderId { get; set; }
@@ -179,18 +191,24 @@ namespace project_luksdk_dotnet
     
         [JsonPropertyName("data")]
         public List<NotifyChannelOrderRequestEntry> Data { get; set; }
+        
+        [JsonPropertyName("timestamp")]
+        public long Timestamp { get; set; }
+        
+        [JsonPropertyName("nonce")]
+        public string Nonce { get; set; }
     }
     
     public class NotifyChannelOrderRequestEntry
     {
         [JsonPropertyName("c_id")]
-        public int CId { get; set; }
+        public int ChannelId { get; set; }
         
         [JsonPropertyName("c_uid")]
-        public string CUid { get; set; }
+        public string UserId { get; set; }
         
         [JsonPropertyName("g_id")]
-        public int GId { get; set; }
+        public int GameId { get; set; }
         
         [JsonPropertyName("game_order_id")]
         public string GameOrderId { get; set; }
@@ -222,7 +240,7 @@ namespace project_luksdk_dotnet
     public class NotifyChannelOrderResponseEntry
     {
         [JsonPropertyName("c_uid")]
-        public string CUid { get; set; }
+        public string UserId { get; set; }
     
         [JsonPropertyName("order_id")]
         public string OrderId { get; set; }
@@ -237,10 +255,10 @@ namespace project_luksdk_dotnet
     public class NotifyGameRequest
     {
         [JsonPropertyName("c_id")]
-        public int CId { get; set; }
+        public int ChannelId { get; set; }
     
         [JsonPropertyName("g_id")]
-        public int GId { get; set; }
+        public int GameId { get; set; }
     
         [JsonPropertyName("notify_type")]
         public NotifyType NotifyType { get; set; }
