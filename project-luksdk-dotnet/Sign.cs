@@ -67,15 +67,43 @@ namespace project_luksdk_dotnet
                     if (jsonTag == null || jsonTag == "sign") continue;
                     
                     // 只处理基本类型
-                    if (!prop.PropertyType.IsPrimitive || prop.PropertyType == typeof(DateTime))
+                    if ((!prop.PropertyType.IsPrimitive && prop.PropertyType != typeof(string)) && prop.PropertyType != typeof(NotifyType) || prop.PropertyType == typeof(DateTime))
                     {
                         continue;
                     }
 
-                    var value = prop.GetValue(obj)?.ToString();
-                    if (!string.IsNullOrEmpty(value))
+                    var pass = true;
+                    var value = prop.GetValue(obj);
+                    if (prop.PropertyType == typeof(NotifyType))
                     {
-                        result[jsonTag] = value;
+                        value = ((NotifyType)value).GetHashCode();
+                    }
+                    switch (prop.PropertyType)
+                    {
+                        case var _ when value is long l:
+                            if (l == 0) pass = false;
+                            break;
+                        case var _ when value is int i:
+                            if (i == 0) pass = false;
+                            break;
+                        case var _ when value is string s:
+                            if (string.IsNullOrEmpty(s)) pass = false;
+                            break;
+                        case var _ when value is bool b:
+                            if (!b) pass = false;
+                            break;
+                        case var _ when value is double d:
+                            if (d == 0) pass = false;
+                            break;    
+                        case var _ when value is float f:
+                            if (f == 0) pass = false;
+                            break;
+                    }
+
+                    if (value == null) pass = false;
+                    if (pass)
+                    {
+                        result[jsonTag] = value?.ToString();
                     }
                 }
             }

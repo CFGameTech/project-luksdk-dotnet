@@ -59,7 +59,7 @@ namespace project_luksdk_dotnet
         public int ChannelId { get; set; }
         
         [JsonPropertyName("c_uid")]
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         
         [JsonPropertyName("token")]
         public string Token { get; set; }
@@ -219,7 +219,7 @@ namespace project_luksdk_dotnet
         [JsonPropertyName("coins_cost")]
         public long CoinsCost { get; set; }
         
-        [JsonPropertyName("score_award")]
+        [JsonPropertyName("coins_award")]
         public long CoinsAward { get; set; }
         
         [JsonPropertyName("score_cost")]
@@ -355,10 +355,10 @@ namespace project_luksdk_dotnet
     public class Response<T>
     {
         [JsonPropertyName("code")] 
-        private int Code { get; set; }
+        public int Code { get; set; }
     
         [JsonPropertyName("msg")] 
-        private string Msg { get; set; }
+        public string Msg { get; set; }
     
         [JsonPropertyName("data")]
         public T Data { get; set; }

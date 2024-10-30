@@ -18,7 +18,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 var group = app.MapGroup("/sdk");
-group.MapPost("get_channel_token", (GetChannelTokenRequest request) =>
+group.MapPost("/get_channel_token", (GetChannelTokenRequest request) =>
 {
     var response = sdk.GetChannelToken(request, _ => (new GetChannelTokenResponse
     {
@@ -29,7 +29,7 @@ group.MapPost("get_channel_token", (GetChannelTokenRequest request) =>
     return response;
 });
 
-group.MapPost("refresh_channel_token", (RefreshChannelTokenRequest request) =>
+group.MapPost("/refresh_channel_token", (RefreshChannelTokenRequest request) =>
 {
     var response = sdk.RefreshChannelToken(request, _ => (new RefreshChannelTokenResponse
     {
@@ -40,7 +40,7 @@ group.MapPost("refresh_channel_token", (RefreshChannelTokenRequest request) =>
     return response;
 });
 
-group.MapPost("get_channel_user_info", (GetChannelUserInfoRequest request) =>
+group.MapPost("/get_channel_user_info", (GetChannelUserInfoRequest request) =>
 {
     var response = sdk.GetChannelUserInfo(request, req => (new GetChannelUserInfoResponse
     {
@@ -49,11 +49,11 @@ group.MapPost("get_channel_user_info", (GetChannelUserInfoRequest request) =>
         Avatar = "",
         Coins = 100000
     }, null));
-    Console.WriteLine("get_channel_user_info - request: {0}, response: {1}", request, response);
+    Console.WriteLine("/get_channel_user_info - request: {0}, response: {1}", request, response);
     return response;
 });
 
-group.MapPost("create_channel_order", (CreateChannelOrderRequest request) =>
+group.MapPost("/create_channel_order", (CreateChannelOrderRequest request) =>
 {
     var response = sdk.CreateChannelOrder(request, req =>
     {
@@ -74,7 +74,7 @@ group.MapPost("create_channel_order", (CreateChannelOrderRequest request) =>
     return response;
 });
 
-group.MapPost("notify_channel_order", (NotifyChannelOrderRequest request) =>
+group.MapPost("/notify_channel_order", (NotifyChannelOrderRequest request) =>
 {
     var response = sdk.NotifyChannelOrder(request, req =>
     {
@@ -94,7 +94,7 @@ group.MapPost("notify_channel_order", (NotifyChannelOrderRequest request) =>
     return response;
 });
 
-group.MapPost("notify_game", (NotifyGameRequest request) =>
+group.MapPost("/notify_game", (NotifyGameRequest request) =>
 {
     var response = sdk.NotifyGame(request, _ => (new NotifyGameResponse(), null));
     Console.WriteLine("notify_game - request: {0}, response: {1}", request, response);

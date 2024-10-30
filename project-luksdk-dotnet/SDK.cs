@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace project_luksdk_dotnet
 {
@@ -85,6 +86,37 @@ namespace project_luksdk_dotnet
             }
 
             return response.WithData(response.Data);
+        }
+    }
+}
+
+namespace project_luksdk_dotnet.Test
+{
+    public class Test
+    {
+        public static void Main()
+        {
+            var sdk = new SDK("fa7ad21fdbe10218024f88538a86");
+            var request = new NotifyGameRequest()
+            {
+                GameId = 1,
+                ChannelId = 1010997,
+                NotifyType = NotifyType.NotifyTypeStartBefore,
+                Timestamp = 123456789,
+                Sign = "576E32AAD3EAFDB8BDBEFBFC47A268B6",
+            };
+            
+
+            try
+            {
+                
+                Console.WriteLine("verify_signature - request: {0}, {1}", request.Sign, sdk.GenerateSignature(request));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
     }
 }
