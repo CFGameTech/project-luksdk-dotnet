@@ -295,10 +295,10 @@ namespace project_luksdk_dotnet
     public class NotifyGameRequestStartBefore
     {
         [JsonPropertyName("room_id")]
-        public int RoomId { get; set; }
+        public string RoomId { get; set; }
     
         [JsonPropertyName("round_id")]
-        public int RoundId { get; set; }
+        public string RoundId { get; set; }
     
         [JsonPropertyName("player_ready_status")]
         public Dictionary<string, bool> PlayerReadyStatus { get; set; }
@@ -313,10 +313,10 @@ namespace project_luksdk_dotnet
     public class NotifyGameRequestGaming
     {
         [JsonPropertyName("room_id")]
-        public int RoomId { get; set; }
+        public string RoomId { get; set; }
     
         [JsonPropertyName("round_id")]
-        public int RoundId { get; set; }
+        public string RoundId { get; set; }
     
         [JsonPropertyName("player_num")]
         public int PlayerNum { get; set; }
@@ -331,10 +331,10 @@ namespace project_luksdk_dotnet
     public class NotifyGameRequestEnd
     {
         [JsonPropertyName("room_id")]
-        public int RoomId { get; set; }
+        public string RoomId { get; set; }
     
         [JsonPropertyName("round_id")]
-        public int RoundId { get; set; }
+        public string RoundId { get; set; }
     
         [JsonPropertyName("rank")]
         public List<string> Rank { get; set; }
