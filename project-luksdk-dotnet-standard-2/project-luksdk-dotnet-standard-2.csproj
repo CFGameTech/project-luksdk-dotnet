@@ -12,7 +12,7 @@
         </Description>
         <PackageTags>luksdk;</PackageTags>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
-        <PackageProjectUrl>https://github.com/CFGameTech/project-luksdk-dotnet/project-luksdk-dotnet-standard-2</PackageProjectUrl>
+        <PackageProjectUrl>https://github.com/CFGameTech/project-luksdk-dotnet/tree/master/project-luksdk-dotnet-standard-2</PackageProjectUrl>
         <RepositoryUrl>https://github.com/CFGameTech/project-luksdk-dotnet</RepositoryUrl>
         <PackageReadmeFile>docs\README.md</PackageReadmeFile>
     </PropertyGroup>
