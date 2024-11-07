@@ -15,6 +15,8 @@ dotnet add package luksdk-standard-2
 ```
 
 # 示例代码
+> 如果使用 .Net Core Standard 2.0，需要将引用 `project_luksdk_dotnet 调整为 `project_luksdk_dotnet_standard_2`
+
 ```csharp
 using System;
 using System.Text.Json;
