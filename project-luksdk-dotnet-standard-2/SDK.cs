@@ -1,6 +1,6 @@
 using System;
 
-namespace project_luksdk_dotnet
+namespace project_luksdk_dotnet_standard_2
 {
     public class SDK
     {

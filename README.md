@@ -4,8 +4,14 @@
 > 仅需将 HTTP 请求转换为对应结构体后调用相关函数并填充返回值即可，关于参数的校验等行为交由 SDK 内部处理。
 
 # 安装
+.Net Core 4.8.1
 ```shell
 dotnet add package luksdk
+```
+
+.Net Core Standard 2.0
+```shell
+dotnet add package luksdk-standard-2
 ```
 
 # 示例代码

@@ -1,4 +1,5 @@
-using project_luksdk_dotnet;
+
+using project_luksdk_dotnet_standard_2;
 
 var builder = WebApplication.CreateBuilder(args);
 
