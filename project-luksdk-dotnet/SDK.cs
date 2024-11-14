@@ -1,15 +1,82 @@
 using System;
+using System.IO;
+using System.Net;
+using System.Text;
+using System.Text.Json;
 
 namespace project_luksdk_dotnet
 {
     public class SDK
     {
         private readonly string _signSecret;
+        private readonly string _domain;
+        private readonly string apiPrefix = "/sdk";
 
-        public SDK(string signSecret)
+        public SDK(string signSecret, string domain)
         {
             _signSecret = signSecret;
+            _domain = domain;
         }
+        
+        /**
+        * 获取包含游戏列表的响应
+        */
+        public Response<GetGameServiceListResponse> GetGameServiceList(int channelId)
+        {
+            var request = new GetGameServiceListRequest
+            {
+                ChannelId = channelId,
+                Timestamp = DateTimeOffset.Now.ToUnixTimeMilliseconds()
+            };
+            return GetGameServiceList(request);
+        }
+        
+        /**
+         * 获取包含游戏列表的响应，给定的请求中如果签名字段如果为空字符串将自动计算签名
+         */
+        public Response<GetGameServiceListResponse> GetGameServiceList(GetGameServiceListRequest request)
+        {
+            if (string.IsNullOrEmpty(_domain))
+            {
+                throw new Exception("domain is empty");
+            }
+
+            var url = $"{_domain}{apiPrefix}/get_game_service_list/";
+            var jsonRequest = JsonSerializer.Serialize(request);
+
+            if (string.IsNullOrEmpty(request.Sign))
+            {
+                request.Sign = GenerateSignature(request);
+            }
+
+            var httpRequest = (HttpWebRequest)WebRequest.Create(url);
+            httpRequest.Method = "POST";
+            httpRequest.ContentType = "application/json";
+
+            var data = Encoding.UTF8.GetBytes(jsonRequest);
+            httpRequest.ContentLength = data.Length;
+
+            using (var stream = httpRequest.GetRequestStream())
+            {
+                stream.Write(data, 0, data.Length);
+            }
+
+            var response = (HttpWebResponse)httpRequest.GetResponse();
+            if (response.StatusCode != HttpStatusCode.OK)
+                throw new Exception($"Url: {url} Error Code: {(int)response.StatusCode}");
+            
+            using var reader = new StreamReader(response.GetResponseStream()!);
+            var responseText = reader.ReadToEnd();
+            var responseObject = JsonSerializer.Deserialize<Response<GetGameServiceListResponse>>(responseText);
+
+            if (responseObject.Code != 0)
+            {
+                throw new Exception($"Error Code: {responseObject.Code} Message: {responseObject.Msg}");
+            }
+            return responseObject;
+
+        }
+
 
         // 验证签名是否正确
         public void VerifySignature(string sign, object parameters)
@@ -92,7 +159,7 @@ namespace project_luksdk_dotnet
     {
         public static void Main()
         {
-            var sdk = new SDK("fa7ad21fdbe10218024f88538a86");
+            var sdk = new SDK("fa7ad21fdbe10218024f88538a86", "https://api.luk.live");
             var request = new NotifyGameRequest()
             {
                 GameId = 1,

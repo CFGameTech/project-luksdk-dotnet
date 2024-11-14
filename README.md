@@ -29,7 +29,7 @@ namespace ConsoleApplication1
         public static void Main(string[] args)
         {
             // 初始化 SDK
-            SDK sdk = new SDK("123456");
+            SDK sdk = new SDK("123456", "https://www.example.com");
 
             // 来自 SDK 请求的参数结构
             GetChannelTokenRequest request = new GetChannelTokenRequest();

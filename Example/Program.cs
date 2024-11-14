@@ -8,7 +8,7 @@ builder.Services.AddSwaggerGen();
 builder.WebHost.UseUrls("http://localhost:8080");
 
 var app = builder.Build();
-var sdk = new SDK("fa7ad21fdbe10218024f88538a86");
+var sdk = new SDK("fa7ad21fdbe10218024f88538a86", "https://api.luk.live");
 
 if (app.Environment.IsDevelopment())
 {
@@ -99,6 +99,13 @@ group.MapPost("/notify_game", (NotifyGameRequest request) =>
 {
     var response = sdk.NotifyGame(request, _ => (new NotifyGameResponse(), null));
     Console.WriteLine("notify_game - request: {0}, response: {1}", request, response);
+    return response;
+});
+
+group.MapPost("/get_game_service_list", () =>
+{
+    var response = sdk.GetGameServiceList(1010997);
+    Console.WriteLine("get_game_service_list - response: {0}", response);
     return response;
 });
 
