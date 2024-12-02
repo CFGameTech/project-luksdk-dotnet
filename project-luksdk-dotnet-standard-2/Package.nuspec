@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>luksdk-standard-2</id>
-    <version>0.0.3</version>
+    <version>0.0.4</version>
     <title>luksdk-standard-2</title>
     <authors>LUKSDK</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>

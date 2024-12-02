@@ -133,6 +133,45 @@ namespace project_luksdk_dotnet
         [JsonPropertyName("data")]
         public List<CreateChannelOrderRequestEntry> Data { get; set; }
     }
+    
+    
+    public class IssuancePropsRequestEntry
+    {
+        [JsonPropertyName("c_uid")]
+        public string UserId { get; set; }
+        
+        [JsonPropertyName("prop_id")]
+        public string PropId { get; set; }
+        
+        [JsonPropertyName("expire")]
+        public int Expire { get; set; }
+        
+        [JsonPropertyName("num")]
+        public int Num { get; set; }
+    }
+
+    public class IssuancePropsRequest
+    {
+        [JsonPropertyName("c_id")]
+        public int ChannelId { get; set; }
+
+        [JsonPropertyName("g_id")]
+        public int GameId { get; set; }
+        
+        [JsonPropertyName("timestamp")]
+        public long Timestamp { get; set; }
+        
+        [JsonPropertyName("sign")]
+        public string Sign { get; set; }
+        
+        [JsonPropertyName("data")]
+        public List<IssuancePropsRequestEntry> Data { get; set; }
+    }
+
+    public class IssuancePropsResponse
+    {
+        
+    }
 
     public class GetGameServiceListRequest
     {

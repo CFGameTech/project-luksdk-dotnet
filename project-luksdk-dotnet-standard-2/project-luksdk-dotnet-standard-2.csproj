@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <PackageId>luksdk-standard-2</PackageId>
-        <Version>0.0.3</Version>
+        <Version>0.0.4</Version>
         <Authors>luksdk</Authors>
         <Company>luksdk</Company>
         <Product>luksdk</Product>
