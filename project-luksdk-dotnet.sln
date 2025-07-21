@@ -1,13 +1,10 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.11.35327.3
+VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project-luksdk-dotnet", "project-luksdk-dotnet\project-luksdk-dotnet.csproj", "{D5D79CE7-535D-4FF0-8540-0E35F9A4459E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LukSDK", "LukSDK\LukSDK.csproj", "{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example", "Example\Example.csproj", "{CAC1A134-7A14-4024-901C-CE2545E6BD4E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project-luksdk-dotnet-standard-2", "project-luksdk-dotnet-standard-2\project-luksdk-dotnet-standard-2.csproj", "{EA08A053-5A0C-4B9A-884F-4D6FAA5A471B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestConsole", "TestConsole\TestConsole.csproj", "{B2C3D4E5-F6G7-8901-BCDE-F23456789012}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,20 +12,19 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D5D79CE7-535D-4FF0-8540-0E35F9A4459E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D5D79CE7-535D-4FF0-8540-0E35F9A4459E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D5D79CE7-535D-4FF0-8540-0E35F9A4459E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D5D79CE7-535D-4FF0-8540-0E35F9A4459E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CAC1A134-7A14-4024-901C-CE2545E6BD4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CAC1A134-7A14-4024-901C-CE2545E6BD4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CAC1A134-7A14-4024-901C-CE2545E6BD4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CAC1A134-7A14-4024-901C-CE2545E6BD4E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EA08A053-5A0C-4B9A-884F-4D6FAA5A471B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EA08A053-5A0C-4B9A-884F-4D6FAA5A471B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EA08A053-5A0C-4B9A-884F-4D6FAA5A471B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EA08A053-5A0C-4B9A-884F-4D6FAA5A471B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2C3D4E5-F6G7-8901-BCDE-F23456789012}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2C3D4E5-F6G7-8901-BCDE-F23456789012}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2C3D4E5-F6G7-8901-BCDE-F23456789012}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2C3D4E5-F6G7-8901-BCDE-F23456789012}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {12345678-1234-1234-1234-123456789012}
 	EndGlobalSection
 EndGlobal

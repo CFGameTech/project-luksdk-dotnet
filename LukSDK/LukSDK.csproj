@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <LangVersion>8.0</LangVersion>
+        <Nullable>enable</Nullable>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <RootNamespace>LukSDK</RootNamespace>
+        
+        <!-- Package Information -->
+        <PackageId>LukSDK</PackageId>
+        <Version>1.0.0</Version>
+        <Authors>LukSDK Team</Authors>
+        <Company>CFGameTech</Company>
+        <Product>LukSDK</Product>
+        <Title>LukSDK .NET - 游戏平台接入SDK</Title>
+        <Description>LukSDK .NET - 游戏平台接入SDK，提供API接口封装、控制事件构建器、回调数据结构定义以及签名验证功能，帮助开发者快速接入LukSDK平台。</Description>
+        <PackageTags>luksdk;game;sdk;dotnet;csharp;gaming;platform</PackageTags>
+        <PackageProjectUrl>https://github.com/CFGameTech/project-luksdk-dotnet</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/CFGameTech/project-luksdk-dotnet</RepositoryUrl>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="../README.md" Pack="true" PackagePath="README.md"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="System.Text.Json" Version="4.7.2" />
+    </ItemGroup>
+
+</Project>
