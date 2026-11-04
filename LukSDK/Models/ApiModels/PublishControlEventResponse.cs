@@ -20,6 +20,7 @@ namespace LukSDK.Models.ApiModels
     /// </summary>
     public static class ControlEventResponseModels
     {
+        public class RoomSeatSyncResponse : Callbacks.NotifyEventSeatSync, IControlEventResponse { }
         /// <summary>
         /// 控制事件响应接口
         /// </summary>
@@ -70,7 +71,7 @@ namespace LukSDK.Models.ApiModels
                 /// <summary>
                 /// 道具类型
                 /// </summary>
-                [JsonPropertyName("prop_type")]
+                [JsonPropertyName("type")]
                 public int? PropType { get; set; }
 
                 /// <summary>
@@ -128,7 +129,7 @@ namespace LukSDK.Models.ApiModels
             /// <summary>
             /// 道具详情列表
             /// </summary>
-            [JsonPropertyName("details")]
+            [JsonPropertyName("props")]
             public List<PropDetail>? Details { get; set; }
 
             /// <summary>

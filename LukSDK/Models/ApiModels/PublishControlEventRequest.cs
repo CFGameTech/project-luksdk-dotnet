@@ -253,6 +253,8 @@ namespace LukSDK.Models.ApiModels
         /// </summary>
         public class RoomSeatSync : IControlEvent
         {
+            [JsonPropertyName("sync_mode")]
+            public bool? SyncMode { get; set; }
         }
 
         /// <summary>
@@ -272,6 +274,12 @@ namespace LukSDK.Models.ApiModels
         /// </summary>
         public class QuickStartGame : IControlEvent
         {
+            [JsonPropertyName("start_ext")]
+            public string? StartExt { get; set; }
+            [JsonPropertyName("player_upper_limit")]
+            public int? PlayerUpperLimit { get; set; }
+            [JsonPropertyName("user_infos")]
+            public List<QuickStartUserInfo>? UserInfos { get; set; }
             /// <summary>
             /// 设置
             /// </summary>
@@ -409,6 +417,50 @@ namespace LukSDK.Models.ApiModels
             /// </summary>
             [JsonPropertyName("unequipped_prop_id")]
             public string UnequippedPropId { get; set; } = string.Empty;
+        }
+        public class AddRobot : IControlEvent
+        {
+            [JsonPropertyName("user_id")]
+            public string? UserId { get; set; }
+            [JsonPropertyName("name")]
+            public string? Name { get; set; }
+            [JsonPropertyName("avatar")]
+            public string? Avatar { get; set; }
+            [JsonPropertyName("gender")]
+            public string? Gender { get; set; }
+            [JsonPropertyName("seat")]
+            public int? Seat { get; set; }
+            [JsonPropertyName("identity")]
+            public int? Identity { get; set; }
+            [JsonPropertyName("level")]
+            public int? Level { get; set; }
+            [JsonPropertyName("is_prepare")]
+            public bool? IsPrepare { get; set; }
+            [JsonPropertyName("params")]
+            public string? Params { get; set; }
+        }
+        public class QuickStartUserInfo
+        {
+            [JsonPropertyName("user_id")]
+            public string? UserId { get; set; }
+            [JsonPropertyName("name")]
+            public string? Name { get; set; }
+            [JsonPropertyName("avatar")]
+            public string? Avatar { get; set; }
+            [JsonPropertyName("gender")]
+            public string? Gender { get; set; }
+            [JsonPropertyName("seat")]
+            public int? Seat { get; set; }
+            [JsonPropertyName("identity")]
+            public int? Identity { get; set; }
+            [JsonPropertyName("coins")]
+            public long? Coins { get; set; }
+            [JsonPropertyName("is_robot")]
+            public bool? IsRobot { get; set; }
+            [JsonPropertyName("robot_level")]
+            public int? RobotLevel { get; set; }
+            [JsonPropertyName("robot_params")]
+            public string? RobotParams { get; set; }
         }
     }
 }

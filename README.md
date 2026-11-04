@@ -19,5 +19,5 @@ dotnet add package LukSDK
 ### PackageReference
 
 ```xml
-<PackageReference Include="LukSDK" Version="1.0.0" />
+<PackageReference Include="LukSDK" Version="1.0.1" />
 ```

@@ -134,15 +134,7 @@ namespace LukSDK.Client
         /// <returns>配置好的 JsonSerializerOptions</returns>
         private static JsonSerializerOptions CreateJsonSerializerOptions()
         {
-            return new JsonSerializerOptions
-            {
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-                PropertyNameCaseInsensitive = true,
-                WriteIndented = false,
-                IgnoreNullValues = true,
-                // 支持未知字段，避免服务端添加新字段时报错
-                IgnoreReadOnlyProperties = false
-            };
+            return LukSDK.Utils.LukSDKJson.CreateOptions();
         }
     }
 }

@@ -7,11 +7,15 @@ namespace LukSDK.Models.Callbacks
     /// </summary>
     public class GetChannelUserInfoRequest
     {
+        [JsonPropertyName("g_id")]
+        public long? GameId { get; set; }
+        [JsonPropertyName("token")]
+        public string? Token { get; set; }
         /// <summary>
         /// 渠道 ID
         /// </summary>
         [JsonPropertyName("c_id")]
-        public string? ChannelId { get; set; }
+        public long? ChannelId { get; set; }
 
         /// <summary>
         /// 渠道用户 ID
@@ -53,13 +57,7 @@ namespace LukSDK.Models.Callbacks
         /// <returns>配置好的 JsonSerializerOptions</returns>
         private static System.Text.Json.JsonSerializerOptions CreateJsonSerializerOptions()
         {
-            return new System.Text.Json.JsonSerializerOptions
-            {
-                PropertyNamingPolicy = System.Text.Json.JsonNamingPolicy.CamelCase,
-                WriteIndented = true,
-                IgnoreNullValues = true,
-                PropertyNameCaseInsensitive = true
-            };
+            return LukSDK.Utils.LukSDKJson.CreateOptions();
         }
     }
 }

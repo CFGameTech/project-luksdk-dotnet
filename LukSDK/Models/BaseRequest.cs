@@ -47,13 +47,7 @@ namespace LukSDK.Models
         /// <returns>配置好的 JsonSerializerOptions</returns>
         protected virtual System.Text.Json.JsonSerializerOptions CreateJsonSerializerOptions()
         {
-            return new System.Text.Json.JsonSerializerOptions
-            {
-                PropertyNamingPolicy = System.Text.Json.JsonNamingPolicy.CamelCase,
-                WriteIndented = true,
-                IgnoreNullValues = true,
-                PropertyNameCaseInsensitive = true
-            };
+            return LukSDK.Utils.LukSDKJson.CreateOptions();
         }
     }
 }

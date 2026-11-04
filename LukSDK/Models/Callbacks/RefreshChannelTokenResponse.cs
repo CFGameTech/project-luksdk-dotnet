@@ -80,13 +80,7 @@ namespace LukSDK.Models.Callbacks
         /// <returns>配置好的 JsonSerializerOptions</returns>
         private static System.Text.Json.JsonSerializerOptions CreateJsonSerializerOptions()
         {
-            return new System.Text.Json.JsonSerializerOptions
-            {
-                PropertyNamingPolicy = System.Text.Json.JsonNamingPolicy.CamelCase,
-                WriteIndented = true,
-                IgnoreNullValues = true,
-                PropertyNameCaseInsensitive = true
-            };
+            return LukSDK.Utils.LukSDKJson.CreateOptions();
         }
     }
 }

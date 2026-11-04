@@ -76,13 +76,13 @@ namespace LukSDK.Models.ApiModels
             /// 主播抽成
             /// </summary>
             [JsonPropertyName("anchor_draw")]
-            public long? AnchorDraw { get; set; }
+            public double? AnchorDraw { get; set; }
 
             /// <summary>
             /// 官方抽成金币
             /// </summary>
             [JsonPropertyName("coins_official_draw")]
-            public long? CoinsOfficialDraw { get; set; }
+            public double? CoinsOfficialDraw { get; set; }
 
             /// <summary>
             /// 支付状态
